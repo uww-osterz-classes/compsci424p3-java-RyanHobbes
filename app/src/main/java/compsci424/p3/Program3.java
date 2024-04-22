@@ -95,10 +95,30 @@ public class Program3 {
 
             // Create the Banker's Algorithm data structures, in any
             // way you like as long as they have the correct size
-
-
+            int [] available = new int [numResources];
+            int [][] max = new int [numProcesses][numResources];
+            int [][] allocation = new int[numProcesses][numResources];
+            int [][] need = new int[numProcesses][numResources];
+            int currentProc = 0;
+            String section = "";
             // 3. Use the rest of the setup file to initialize the
             // data structures
+            while ((currentLine = setupFileReader.readLine()) != null) {
+            	if (currentLine.equals("Available") || currentLine.equals("Max") || currentLine.equals("Allocation")) { // check for a new section
+            		section = currentLine;
+            		continue;
+            	}
+            	switch (section) {
+            		case "Available":
+            				String[] availableResources = currentLine.split(" ");
+            		case "Max":
+            			
+            		case "Allocation":
+            			
+            			default: // should never get here
+            				break;
+            	}
+            }
 
             setupFileReader.close(); // done reading the file, so close it
         }
