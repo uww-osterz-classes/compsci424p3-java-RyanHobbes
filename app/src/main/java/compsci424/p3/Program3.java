@@ -217,6 +217,16 @@ public class Program3 {
 		// as separate methods within this class, as separate classes
 		// with their own main methods, or as additional code within
 		// this main method.
+		if (args[0].equals("manual")) {
+			manualMode(max, allocation, available, numProcesses, numResources);
+		}
+		else if (args[0].equals("automatic")) {
+			automaticMode(max, allocation, available, numProcesses, numResources);
+		}
+		else {
+			System.err.println("Invalid mode specified. Exiting");
+			return;
+		}
 
 	}
 	private static boolean safeStateCheck(int[][] allocation, int[] available, int[][] need, int numProcesses, int numResources) {
